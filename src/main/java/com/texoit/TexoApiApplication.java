@@ -26,7 +26,6 @@ public class TexoApiApplication  implements CommandLineRunner{
 	public static void main(String[] args) throws IOException, CsvException {
 		SpringApplication.run(TexoApiApplication.class, args);
 		
-		
 	}
 
 	@Override
