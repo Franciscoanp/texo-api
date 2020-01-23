@@ -11,4 +11,6 @@ public interface MovieRepository extends JpaRepository<Movie, Long>{
 
 	@Query(value = "SELECT * FROM MOVIE WHERE WINNER = 'yes'", nativeQuery = true)
 	public List<Movie> findWinners();
+	
+	List<Movie> findByProducersContainingIgnoreCase(String producers);
 }

@@ -11,6 +11,8 @@ import com.texoit.repository.MovieRepository;
 @Service
 public class MovieService {
 
+	public static final String AND = " and ";
+	
 	@Autowired
 	private MovieRepository movieRepository;
 	
@@ -19,12 +21,15 @@ public class MovieService {
 		return movies;
 	}
 	
-	public List<Movie> findWinners() {
+	//mudar essa consulta para verificar se foi vencedor, atualmente está buscando todos os filmes indicados
+	public List<Movie> findWinnersByName() {
 		List<Movie> winners = movieRepository.findWinners();
-		
+		for (Movie movie : winners) {
+			List<Movie> teste = movieRepository.findByProducersContainingIgnoreCase(movie.getProducers());
+			System.out.println("O produtor: " +movie.getProducers() + " possui "  + teste.size() +" vitorias");
+		}
 		
 		return winners;
 	}
-	
-	
+
 }

@@ -8,12 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
-import lombok.ToString;
 
 @Data
 @Entity
-@ToString
-public class Movie implements Serializable {
+public class Producer implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,12 +19,6 @@ public class Movie implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	private String year;
-	private String title;
-	private String studios;
-	private String producers;
-	private String winner;
-
+	private String name;
 	
-
 }

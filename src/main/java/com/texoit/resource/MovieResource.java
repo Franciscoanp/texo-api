@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.texoit.model.Movie;
+import com.texoit.repository.IProducerProjection;
+import com.texoit.repository.ProducerRepository;
 import com.texoit.service.MovieService;
 
 @RestController
@@ -18,14 +20,19 @@ public class MovieResource {
 	@Autowired
 	private MovieService movieService;
 	
+	@Autowired
+	private ProducerRepository producerRepository;
+	
 	@GetMapping
-	public ResponseEntity<List<Movie>> findAll() {
-		return ResponseEntity.ok(movieService.findAll());
+	public ResponseEntity<List<Movie>> findWinnersByName() {
+		return ResponseEntity.ok(movieService.findWinnersByName());
 	}
 	
 	@GetMapping("/winners")
-	public ResponseEntity<List<Movie>> findWinners() {
-		return ResponseEntity.ok(movieService.findWinners());
+	public ResponseEntity<List<IProducerProjection>> findAllProducer() {
+		return ResponseEntity.ok(producerRepository.findAllProducer());
 	}
+	
+	
 	
 }
