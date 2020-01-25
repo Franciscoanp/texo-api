@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.texoit.model.Movie;
+import com.texoit.model.MinMax;
 import com.texoit.repository.IProducerProjection;
 import com.texoit.repository.ProducerRepository;
 import com.texoit.service.MovieService;
@@ -24,8 +24,8 @@ public class MovieResource {
 	private ProducerRepository producerRepository;
 	
 	@GetMapping
-	public ResponseEntity<List<Movie>> findWinnersByName() {
-		return ResponseEntity.ok(movieService.findWinnersByName());
+	public ResponseEntity<MinMax> findWinners() {
+		return ResponseEntity.ok(movieService.findWinners());
 	}
 	
 	@GetMapping("/winners")

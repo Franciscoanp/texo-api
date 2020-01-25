@@ -21,12 +21,10 @@ public class Movie implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	private String year;
+	private Integer year;
 	private String title;
 	private String studios;
 	private String producers;
 	private String winner;
-
-	
 
 }
