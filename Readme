@@ -1,0 +1,13 @@
+## Endpoint para verificar o produtor com maior intervalo entre dois premios e o que obteve dois premios mais rápido. ##
+   localhost:8000/movies
+  
+  
+## Como executar os testes repository e resources ## 
+1 - Alterar o scope de runtime para test da dependecia do H2, na linha 42 do pom.xml.
+
+2 - (opcional) Comentar as linhas 42 a 76 da classe de inicialização do projeto TexoApiApplication, 
+	visto que esse arquivo está carregando o arquivo movies.csv na base h2.
+	Se não comentar essas linhas a aplicação irá persistir os dados do arquivo movies.csv na execução dos testes, gerando log desnecessário.
+	
+
+  

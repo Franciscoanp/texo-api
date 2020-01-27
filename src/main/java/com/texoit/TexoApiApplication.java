@@ -39,41 +39,41 @@ public class TexoApiApplication  implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 	
-		Reader reader = Files.newBufferedReader(Paths.get("movielist.csv"));
-
-        CsvToBean<Movie> csvToBean = new CsvToBeanBuilder<Movie>(reader)
-        		.withSeparator(';')
-                .withType(Movie.class)
-                .build();
-
-        List<Movie> movies = csvToBean.parse();
-
-        for (Movie movie : movies) {
-        	movieRepository.save(movie);
-        }	
-        
-        for (Movie movie : movieRepository.findWinners()) {
-        	
-        	List<String> producersTemp1 = new ArrayList<>();
-        	List<Producer> producers = new ArrayList<>();
-        	Producer producerTemp = new Producer();
-        	
-        	producersTemp1.add(movie.getProducers().replace(AND , ", "));
-        	
-        	for (int i = 0; i < producersTemp1.size(); i++) {
-        		producerTemp.setName(producersTemp1.get(i));
-        		producers.add(producerTemp);
-        		
-        		String[] nomes = producerTemp.getName().split(", ");
-        		for (String nome : nomes) {
-        			Producer producer = new Producer();
-        			producer.setName(nome);
-        			producerRepository.save(producer);
-        		}
-        		
-        	}
-        	
-        }
+//		Reader reader = Files.newBufferedReader(Paths.get("movielist.csv"));
+//
+//        CsvToBean<Movie> csvToBean = new CsvToBeanBuilder<Movie>(reader)
+//        		.withSeparator(';')
+//                .withType(Movie.class)
+//                .build();
+//
+//        List<Movie> movies = csvToBean.parse();
+//
+//        for (Movie movie : movies) {
+//        	movieRepository.save(movie);
+//        }	
+//        
+//        for (Movie movie : movieRepository.findWinners()) {
+//        	
+//        	List<String> producersTemp1 = new ArrayList<>();
+//        	List<Producer> producers = new ArrayList<>();
+//        	Producer producerTemp = new Producer();
+//        	
+//        	producersTemp1.add(movie.getProducers().replace(AND , ", "));
+//        	
+//        	for (int i = 0; i < producersTemp1.size(); i++) {
+//        		producerTemp.setName(producersTemp1.get(i));
+//        		producers.add(producerTemp);
+//        		
+//        		String[] nomes = producerTemp.getName().split(", ");
+//        		for (String nome : nomes) {
+//        			Producer producer = new Producer();
+//        			producer.setName(nome);
+//        			producerRepository.save(producer);
+//        		}
+//        		
+//        	}
+//        	
+//        }
         
         
         
